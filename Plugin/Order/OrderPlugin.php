@@ -42,7 +42,7 @@ class OrderPlugin
     }
 
     public function afterPlace(OrderService $orderService, Order $order) {
-        $this->sendWebhook('https://requestb.in/tl29nftl', [
+        $this->sendWebhook('https://api.shopwoo.com/webhooks/magento/order/create', [
             'order_id' => $order->getId(),
             'domain'   => $order->getStore()->getBaseUrl()
         ]);
